@@ -1,0 +1,33 @@
+task_id: task-20260719-prompt-001
+operation: prompt.create
+phase: create
+volume: 1
+scope:
+  acts: [4]
+  chapters: [26, 30]
+batch:
+  index: 1
+  total: 2
+current_act: 4
+subtasks:
+  - chapter: vol-1-ch-26
+    prompt: prompts/vol-1-ch-26.md
+    status: completed
+  - chapter: vol-1-ch-27
+    prompt: prompts/vol-1-ch-27.md
+    status: completed
+  - chapter: vol-1-ch-28
+    prompt: prompts/vol-1-ch-28.md
+    status: running
+  - chapter: vol-1-ch-29
+    prompt: prompts/vol-1-ch-29.md
+    status: pending
+  - chapter: vol-1-ch-30
+    prompt: prompts/vol-1-ch-30.md
+    status: pending
+handoff:
+  start_state: chapter-25.ends_with
+  end_state: chapter-30.ends_with
+attempt: 1
+feedback_path: .agent/tasks/task-20260719-prompt-001/feedback.md
+status: running

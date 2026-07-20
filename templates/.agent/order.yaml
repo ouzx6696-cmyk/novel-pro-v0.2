@@ -1,0 +1,15 @@
+task_id: ""
+operation: ""
+phase: ""
+volume: 1
+scope:
+  acts: []
+  chapters: []
+batch:
+  index: 1
+  total: 1
+current_act: 1
+subtasks: []
+attempt: 1
+feedback_path: ""
+status: idle

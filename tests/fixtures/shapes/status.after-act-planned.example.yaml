@@ -1,0 +1,7 @@
+# 形态参考：目标写作范围已经确定并进入章纲阶段
+cursor:
+  step: outline.chapters
+  volume: 1
+  act: 1
+  range: [1, 7]
+  paused_reason: ""

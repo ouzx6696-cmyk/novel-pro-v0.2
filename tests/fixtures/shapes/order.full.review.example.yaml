@@ -1,0 +1,20 @@
+task_id: task-20260717-full-001
+operation: full.review
+phase: review
+volume: 1
+scope:
+  acts: [2]
+  chapters: [4, 6]
+current_act: 2
+subtasks:
+  - act: 2
+    reader: reader
+    inputs:
+      - drafts/vol-1-ch-4.md
+      - drafts/vol-1-ch-5.md
+      - drafts/vol-1-ch-6.md
+    report: .agent/tasks/task-20260717-full-001/act-2.reader.md
+    status: running
+attempt: 1
+feedback_path: .agent/tasks/task-20260717-full-001/feedback.md
+status: running

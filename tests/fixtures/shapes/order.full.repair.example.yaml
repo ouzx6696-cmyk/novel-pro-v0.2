@@ -1,0 +1,27 @@
+task_id: task-20260717-full-001
+operation: full.repair
+phase: repair
+volume: 1
+scope:
+  acts: [2]
+  chapters: [4, 5]
+current_act: 2
+subtasks:
+  - chapter: vol-1-ch-4
+    issue: content
+    root_cause: draft_execution
+    agent: writer
+    prompt: prompts/vol-1-ch-4.md
+    repair_focus: .agent/tasks/task-20260717-full-001/act-2.reader.md#vol-1-ch-4
+    output: .agent/tasks/task-20260717-full-001/vol-1-ch-4.rewrite.md
+    status: pending
+  - chapter: vol-1-ch-5
+    issue: expression
+    agent: anti-ai
+    input: drafts/vol-1-ch-5.md
+    reader_report: .agent/tasks/task-20260717-full-001/act-2.reader.md#vol-1-ch-5
+    output: .agent/tasks/task-20260717-full-001/vol-1-ch-5.antiai.md
+    status: pending
+attempt: 2
+feedback_path: .agent/tasks/task-20260717-full-001/feedback.md
+status: running

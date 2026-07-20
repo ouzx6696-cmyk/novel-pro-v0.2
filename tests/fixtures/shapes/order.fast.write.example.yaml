@@ -1,0 +1,23 @@
+task_id: task-20260717-fast-001
+operation: fast.write
+phase: write
+volume: 1
+scope:
+  acts: [1]
+  chapters: [1, 2]
+batch:
+  index: 1
+  total: 2
+current_act: 1
+subtasks:
+  - chapter: vol-1-ch-1
+    prompt: prompts/vol-1-ch-1.md
+    output: drafts/vol-1-ch-1.md
+    status: running
+  - chapter: vol-1-ch-2
+    prompt: prompts/vol-1-ch-2.md
+    output: drafts/vol-1-ch-2.md
+    status: pending
+attempt: 1
+feedback_path: .agent/tasks/task-20260717-fast-001/feedback.md
+status: running

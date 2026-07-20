@@ -1,0 +1,28 @@
+task_id: task-20260717-full-001
+operation: full.commit
+phase: commit
+volume: 1
+scope:
+  acts: [2]
+  chapters: [4, 5]
+current_act: 2
+subtasks:
+  - chapter: vol-1-ch-4
+    accepted: .agent/tasks/task-20260717-full-001/vol-1-ch-4.rewrite.md
+    target: texts/vol-1-ch-4.md
+    decision: accepted
+    status: pending
+  - chapter: vol-1-ch-5
+    accepted: drafts/vol-1-ch-5.md
+    target: texts/vol-1-ch-5.md
+    decision: accepted
+    status: pending
+cleanup:
+  - drafts/vol-1-ch-4.md
+  - drafts/vol-1-ch-5.md
+  - .agent/tasks/task-20260717-full-001/
+attempt: 1
+feedback_path: .agent/tasks/task-20260717-full-001/feedback.md
+status: running
+order_after_commit: idle
+preflight: all_candidates_and_targets_clear

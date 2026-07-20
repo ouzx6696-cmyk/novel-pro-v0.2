@@ -1,0 +1,16 @@
+task_id: task-20260717-completion-001
+operation: completion.inspect
+phase: inspect
+volume: 1
+scope:
+  acts: [1]
+current_act: 1
+subtasks:
+  - act: 1
+    reader: completion-reviewer
+    input: texts/vol-1-ch-1.md
+    report: .agent/tasks/task-20260717-completion-001/act-1.report.md
+    status: pending
+attempt: 1
+feedback_path: .agent/tasks/task-20260717-completion-001/feedback.md
+status: running

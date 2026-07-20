@@ -1,0 +1,19 @@
+cursor:
+  step: outline.volume
+  volume: 1
+  act: 1
+  range: []
+  paused_reason: ""
+
+migration:
+  state: none
+  phase: ""
+  source_project: ""
+  source_version: ""
+  target_project: ""
+  report_path: ""
+  resume_step: ""
+  cleanup: not_started
+  completed_count: 0
+  missing_count: 0
+  unmapped_count: 0

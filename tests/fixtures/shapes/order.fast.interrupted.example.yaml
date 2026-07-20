@@ -1,0 +1,27 @@
+task_id: task-20260719-fast-002
+operation: fast.write
+phase: write
+volume: 1
+scope:
+  acts: [4]
+  chapters: [29, 31]
+batch:
+  index: 2
+  total: 3
+current_act: 4
+subtasks:
+  - chapter: vol-1-ch-29
+    prompt: prompts/vol-1-ch-29.md
+    output: drafts/vol-1-ch-29.md
+    status: completed
+  - chapter: vol-1-ch-30
+    prompt: prompts/vol-1-ch-30.md
+    output: drafts/vol-1-ch-30.md
+    status: failed
+  - chapter: vol-1-ch-31
+    prompt: prompts/vol-1-ch-31.md
+    output: drafts/vol-1-ch-31.md
+    status: pending
+attempt: 2
+feedback_path: .agent/tasks/task-20260719-fast-002/feedback.md
+status: interrupted

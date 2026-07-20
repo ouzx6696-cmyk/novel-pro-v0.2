@@ -1,0 +1,47 @@
+{
+  "name": "novel-pro",
+  "version": "0.2.1-pro",
+  "description": "novel-pro v0.2 中文长篇小说创作 Skill。仅直接支持 runtime_profile: novel-pro-0.2 项目；旧版本项目必须先通过完整迁移入口重建新项目、搬运内容并核对迁移报告。支持题材初始化、卷幕章规划、单章 Prompt 与 writer、Fast 草稿、Full 冷读返修、显式 Prompt 审查、完本质检与整卷对齐；文学质量来自对实际文字的阅读。",
+  "author": {
+    "name": "ouzx6696-cmyk",
+    "url": "https://github.com/ouzx6696-cmyk"
+  },
+  "license": "MIT",
+  "pricing": {"tier": "free"},
+  "permissions": [],
+  "dependencies": {},
+  "tags": [
+    "novel",
+    "writing",
+    "creative",
+    "fiction",
+    "storytelling",
+    "act-writing",
+    "act-outline",
+    "act-alignment",
+    "long-context",
+    "reader-review",
+    "completion-review",
+    "full-book-revision",
+    "revision-triage",
+    "fast-mode",
+    "anti-ai"
+  ],
+  "category": "creative",
+  "openclaw": {"minVersion": "0.50.0"},
+  "files": [
+    "SKILL.md",
+    "skill.json",
+    "LICENSE",
+    "README.md",
+    "skills/",
+    "agents/",
+    "knowledge/",
+    "templates/",
+    "tools/_common.py",
+    "tools/init.py",
+    "tools/runtime_manifest.py",
+    "tools/migrate.py",
+    "tools/sync_runtime.py"
+  ]
+}
