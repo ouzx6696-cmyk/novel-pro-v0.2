@@ -1,6 +1,6 @@
-# novel-pro v0.2 (`0.2.1-pro`)
+# novel-pro v0.2 (`0.2.2-pro`)
 
-novel-pro 中文长篇小说创作 Skill。当前项目必须使用 `runtime_profile: novel-pro-0.2`。项目从题材和卷纲开始，用幕与章纲组织长线内容，用幕级任务创建单章 Prompt，再由主代理为每章构造 writer base 并派发独立 writer。
+novel-pro 中文长篇小说创作 Skill，是可独立运行的文学内核。当前项目必须使用 `runtime_profile: novel-pro-0.2`。项目从题材和卷纲开始，用幕与章纲组织长线内容，用幕级任务创建单章 Prompt，再由主代理为每章构造 writer base 并派发独立 writer。
 
 ## 版本门禁与完整迁移
 
@@ -11,6 +11,14 @@ python tools/migrate.py <旧项目> <新项目>
 ```
 
 迁移入口会重新初始化新项目、搬运对应内容、生成差异报告。核对 `.migration/report.md` 后执行 `finalize`，再按报告执行 `cleanup --confirm`。源项目在报告核对前保持不变。
+
+## Novel Desk 与 TASKS.md 协作
+
+Novel Desk 是可选的本地作者工作台，不是 Agent 控制台：它不启动 Runtime、不连接 MCP、不调度 Agent。`novel-pro` 可完全脱离 Desk 运行；使用 Desk 时，双方只通过同一个项目文件夹协作。
+
+项目根目录 `TASKS.md` 是唯一的作者到 Agent 外壳交接文件。收到“处理任务清单”后，Agent 必须先读取所有 `pending` 项，核对来源路径、内容 hash 和可选 anchor，汇总拟处理范围与既有 Skill 路径，并等待作者明确确认。确认后才更新任务为 `in_progress`，按原有文学流程执行，最后回写 `completed` 或 `blocked`、结果说明和产物路径。
+
+`TASKS.md` 不替代 `.agent/status.yaml`、`.agent/order.yaml` 或 `.agent/tasks/`；它也不改变角色、状态机、正式正文提交和完整迁移。`texts/` 继续只通过原有 Reader 接受与 `full.commit` 边界写入。完整迁移不自动搬运 `TASKS.md`：旧项目保留历史，新项目首次创建 Desk 任务时再生成清单。
 
 ## 主线
 

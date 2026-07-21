@@ -34,7 +34,7 @@ def frontmatter_paths(path):
 def main():
     manifest = json.loads(read(ROOT / "skill.json"))
     assert manifest["name"] == "novel-pro"
-    assert manifest["version"] == "0.2.1-pro"
+    assert manifest["version"] == "0.2.2-pro"
     assert manifest["license"] == "MIT"
     assert "skill.json" in manifest["files"]
     assert "LICENSE" in manifest["files"]
@@ -109,6 +109,7 @@ def main():
             assert target.is_file(), f"{index.relative_to(ROOT)}: {rel}"
 
     skill = read(ROOT / "SKILL.md")
+    readme = read(ROOT / "README.md")
     dispatch = read(ROOT / "skills/dispatch.md")
     migration = read(ROOT / "skills/migration.md")
     writing = read(ROOT / "skills/writing.md")
@@ -122,6 +123,11 @@ def main():
     writer = read(ROOT / "agents/writer.md")
     reader = read(ROOT / "agents/reader.md")
     completion = read(ROOT / "skills/completion-quality.md")
+
+    # Novel Desk is an optional local shell. The author-to-Agent handoff must
+    # remain outside the literary state machine and require explicit consent.
+    for marker in ("Novel Desk", "TASKS.md", "等待作者", "不替代 `.agent/status.yaml`"):
+        assert marker in skill + readme, marker
 
     assert "skills/completion-quality.md" not in frontmatter_paths(ROOT / "agents/novel-agent.md")
     assert "skills/completion-quality.md" not in frontmatter_paths(ROOT / "agents/act-planner.md")

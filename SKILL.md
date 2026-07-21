@@ -1,13 +1,28 @@
 ---
 name: novel-pro
-description: "novel-pro 中文长篇小说创作 Skill，仅面向当前 runtime_profile: novel-pro-0.2 项目：题材初始化、卷幕章规划、单章 Prompt 与 writer、Fast 草稿、Full 冷读返修、显式 Prompt 审核、完本质检与整卷对齐。识别到旧版本、旧 profile、story.yaml 或缺少迁移状态字段时，不直接兼容或同步，先通过完整项目迁移入口重建新项目、搬运内容并核对报告。"
+description: "novel-pro 中文长篇小说创作 Skill，是可独立运行的文学内核：题材初始化、卷幕章规划、单章 Prompt 与 writer、Fast 草稿、Full Reader 冷读返修、显式 Prompt 审查、完本质检与整卷对齐。与 Novel Desk 协作时，只通过项目根目录 TASKS.md 交接作者请求；先汇总 pending 范围与 Skill 路径、等待作者确认，再按既有流程执行并回写结果。仅支持当前 runtime_profile: novel-pro-0.2；旧项目必须完整迁移。"
 ---
 
 # novel-pro v0.2
 
-发行号：`0.2.1-pro`。当前项目必须使用 `story.md` 的 `skill_version: 5.x` 与 `runtime_profile: novel-pro-0.2`。
+发行号：`0.2.2-pro`。当前项目必须使用 `story.md` 的 `skill_version: 5.x` 与 `runtime_profile: novel-pro-0.2`。
 
 这是中文长篇小说创作 Skill。它用卷、幕和章纲保持长线连续性，用幕级 Prompt 创建保持阶段理解，用单章 writer 保留每章的创作注意力，再由 Reader 对真实正文作出文学判断。
+
+## 产品位置与本地协作
+
+`novel-pro` 是可独立运行的文学内核：Agent Host 加本地项目文件夹即可执行完整创作流程。Novel Desk 是可选的本地作者工作台，只提供文件编辑、快照、报告展示和作者请求入口；它不启动 Runtime、不连接 MCP，也不调度或监控 Agent。
+
+Desk 存在时，项目根目录 `TASKS.md` 是唯一的作者到 Agent 外壳交接文件，不是第二套创作状态机。收到“处理任务清单”或发现 Desk 创建的任务时：
+
+1. 读取全部 `pending` 项，核对 `source.path`、`source.content_hash`、可选 anchor 和请求范围；来源已变化时先重读并向作者说明差异。
+2. 汇总拟处理的文件、范围和将采用的既有 Skill 路径，等待作者在 Agent 对话中明确确认。
+3. 确认后才把相应项更新为 `in_progress`，并按本 Skill 原有的规划、Prompt、Fast、Full、Reader、完本或迁移流程执行。
+4. 把候选和报告写入既有 Skill 产物位置；完成、受阻或取消时更新同一项的 `status`、结果说明和结果文件路径。
+
+`TASKS.md` 不替代 `.agent/status.yaml`、`.agent/order.yaml` 或 `.agent/tasks/`，也不自动转写 legacy order。只有既有文学流程在作者确认后，才按原规则创建或推进 `.agent/` 现场；`texts/` 仍只能通过原有的 Reader 接受与 `full.commit` 边界写入。没有 Desk 时，Skill 不要求 `TASKS.md`，原有对话式使用方式保持不变。
+
+完整迁移仍使用本 Skill 的新目录迁移流程。旧项目保留 `TASKS.md` 作为协作历史，迁移目标不自动携带它；新项目在第一次创建 Desk 任务时才生成新的清单。
 
 ## 版本门禁与项目迁移
 
